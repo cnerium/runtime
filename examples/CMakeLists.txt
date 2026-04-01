@@ -1,0 +1,18 @@
+function(cnerium_add_runtime_example target source_file)
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${source_file}")
+        add_executable(${target} "${source_file}")
+        target_link_libraries(${target} PRIVATE runtime::runtime)
+        target_compile_features(${target} PRIVATE cxx_std_20)
+
+        if(MSVC)
+            target_compile_options(${target} PRIVATE /W4 /permissive-)
+        else()
+            target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic)
+        endif()
+    endif()
+endfunction()
+
+cnerium_add_runtime_example(runtime_example_01 01_thread_pool_basic.cpp)
+cnerium_add_runtime_example(runtime_example_02 02_executor_basic.cpp)
+cnerium_add_runtime_example(runtime_example_03 03_runtime_basic.cpp)
+cnerium_add_runtime_example(runtime_example_04 04_server_runner_basic.cpp)
