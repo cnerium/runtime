@@ -5,10 +5,16 @@
   "type": "header-only",
   "include": "include",
   "license": "MIT",
-  "description": "A tiny header-only C++ library.",
+  "description": "Concurrent execution runtime for the Cnerium web framework. Provides thread pool, executor, scheduler, and integrates with the HTTP server layer.",
   "keywords": [
     "cpp",
-    "header-only",
+    "runtime",
+    "executor",
+    "thread-pool",
+    "scheduler",
+    "concurrency",
+    "framework",
+    "cnerium",
     "vix"
   ],
   "repository": "https://github.com/cnerium/runtime",
@@ -16,6 +22,12 @@
     {
       "name": "Gaspard Kirira",
       "github": "Gaspardkirira"
+    }
+  ],
+  "deps": [
+    {
+      "id": "cnerium/server",
+      "version": "0.1.0"
     }
   ]
 }
